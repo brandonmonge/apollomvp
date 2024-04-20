@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apollo - Your Personal Time Creation Assistant</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Reset default browser styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Global styles */
+      body {
+        font-family: "Poppins", sans-serif;
+        line-height: 1.6;
+        color: #fff;
+        background: linear-gradient(135deg, #1c1c1c, #2c3e50);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: #fff;
+      }
+
+      a {
+        text-decoration: none;
+        color: #fff;
+      }
+
+      /* Header styles */
+      header {
+        background: rgba(0, 0, 0, 0.8);
+        padding: 20px 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 999;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+      }
+
+      nav ul li {
+        margin: 0 15px;
+      }
+
+      .nav-link {
+        font-size: 18px;
+        font-weight: 600;
+        padding: 10px;
+        transition: color 0.3s ease;
+      }
+
+      .nav-link:hover {
+        color: #3498db;
+      }
+
+      /* Hero section styles */
+      .full-screen {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #1c1c1c, #2c3e50);
+        padding: 100px 20px;
+      }
+
+      .hero-content {
+        text-align: center;
+        max-width: 800px;
+      }
+
+      .hero-content h1 {
+        font-size: 64px;
+        margin-bottom: 20px;
+        text-shadow: 0 0 10px rgba(52, 152, 219, 0.8);
+      }
+
+      .hero-content p {
+        font-size: 24px;
+        margin-bottom: 40px;
+      }
+
+      .cta-button {
+        display: inline-block;
+        padding: 15px 30px;
+        background-color: #3498db;
+        color: #fff;
+        font-size: 20px;
+        font-weight: 600;
+        border-radius: 50px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+
+      .cta-button:hover {
+        background-color: #2980b9;
+        transform: scale(1.05);
+      }
+
+      /* Benefits and Features section styles */
+      #benefits,
+      #features {
+        padding: 100px 0;
+        background: linear-gradient(135deg, #2c3e50, #34495e);
+      }
+
+      .benefits-grid,
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+        margin-top: 60px;
+      }
+
+      .benefit,
+      .feature {
+        text-align: center;
+        padding: 40px;
+        border-radius: 10px;
+        background: rgba(0, 0, 0, 0.4);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .benefit:hover,
+      .feature:hover {
+        transform: translateY(-10px);
+      }
+
+      .icon-container {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 80px;
+        height: 80px;
+        background-color: #3498db;
+        border-radius: 50%;
+        margin-bottom: 20px;
+        box-shadow: 0 0 10px rgba(52, 152, 219, 0.8);
+      }
+
+      .icon {
+        font-size: 40px;
+        color: #fff;
+      }
+
+      .benefit h3,
+      .feature h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+
+      .benefit p,
+      .feature p {
+        font-size: 18px;
+        color: #ccc;
+      }
+
+      /* Footer styles */
+      footer {
+        background: rgba(0, 0, 0, 0.8);
+        padding: 20px 0;
+        color: #fff;
+        text-align: center;
+      }
+
+      /* Animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .benefit,
+      .feature {
+        animation: fadeIn 1s ease;
+      }
+
+      /* Responsive styles */
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 10px;
+        }
+
+        .hero-content h1 {
+          font-size: 48px;
+        }
+
+        .hero-content p {
+          font-size: 20px;
+        }
+
+        .benefits-grid,
+        .features-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#hero" class="nav-link">Home</a></li>
+          <li><a href="#benefits" class="nav-link">Benefits</a></li>
+          <li><a href="#features" class="nav-link">Features</a></li>
+          <li><a href="demo.html" class="nav-link">Try Apollo</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="hero" class="full-screen">
+        <div class="hero-content">
+          <h1>Create Time for Everything with Apollo ⌛️⚡️</h1>
+          <p>
+            Your affordable personal assistant that manages your schedule and
+            hobbies.
+          </p>
+          <a href="demo.html" class="cta-button">Start Texting</a>
+        </div>
+      </section>
+
+      <section id="benefits">
+        <div class="container">
+          <h2>Uncover the Benefits</h2>
+          <div class="benefits-grid">
+            <div class="benefit">
+              <div class="icon-container">
+                <i class="icon">🎨</i>
+              </div>
+              <h3>Pursue Your Passions</h3>
+              <p>
+                Make time for the hobbies and activities that bring you joy and
+                fulfillment.
+              </p>
+            </div>
+            <div class="benefit">
+              <div class="icon-container">
+                <i class="icon">⏰</i>
+              </div>
+              <h3>Effortless Efficiency</h3>
+              <p>
+                Streamline your schedule and maximize productivity with
+                intelligent time management.
+              </p>
+            </div>
+            <div class="benefit">
+              <div class="icon-container">
+                <i class="icon">👥</i>
+              </div>
+              <h3>Strengthen Connections</h3>
+              <p>
+                Nurture relationships by carving out dedicated time for friends
+                and loved ones.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features">
+        <div class="container">
+          <h2>Experience the Features</h2>
+          <div class="features-grid">
+            <div class="feature">
+              <div class="icon-container">
+                <i class="icon">📝</i>
+              </div>
+              <h3>Proactive Planning</h3>
+              <p>
+                Apollo creates personalized plans and executes them seamlessly
+                on your behalf.
+              </p>
+            </div>
+            <div class="feature">
+              <div class="icon-container">
+                <i class="icon">📈</i>
+              </div>
+              <h3>Progress Tracking</h3>
+              <p>
+                Stay on top of your goals and achievements with intuitive
+                tracking tools.
+              </p>
+            </div>
+            <div class="feature">
+              <div class="icon-container">
+                <i class="icon">💭</i>
+              </div>
+              <h3>Meaningful Reflection</h3>
+              <p>
+                Gain valuable insights and make data-driven decisions through
+                guided reflection.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2024 Apollo. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
